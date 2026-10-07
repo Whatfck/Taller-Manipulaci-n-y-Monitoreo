@@ -1,5 +1,15 @@
 # taller: Manipulación y Monitoreo de Recursos del SO desde el Código
 
+## **Como probar**
+```bash
+#Clona
+git clone https://github.com/Whatfck/Taller-Manipulaci-n-y-Monitoreo
+# Entra al directorio
+cd Taller-Manipulaci-n-y-Monitoreo/taller
+# Compila y ejecuta
+cargo -q run
+```
+
 ## *Instrucciones*
 ### **1. Vigilante de Recursos (Monitoreo de RAM y CPU)**
 
