@@ -1,0 +1,8 @@
+[package]
+name = "Taller"
+version = "0.1.0"
+edition = "2024"
+default-run = "Taller"
+
+[dependencies]
+inquire = "0.7"
