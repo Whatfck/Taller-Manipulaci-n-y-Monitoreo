@@ -1,5 +1,5 @@
 use std::process::Command;
-use inquire::{Select};
+use inquire::Select;
 pub use taller::clear;
 
 fn ejecutar(binario: &str) {
@@ -7,27 +7,29 @@ fn ejecutar(binario: &str) {
     println!("Ejecutando {}...", binario);
 
     let status = Command::new("cargo")
-        .args(["run","-q","--bin", binario])
+        .args(["run", "-q", "--bin", binario])
         .status();
 
-    match status {
-        Ok(s) if s.success() => println!("Regresando al menú principal..."),
-        Ok(s) => eprintln!("El subprograma finalizó con código: {:?}", s.code()),
-        Err(e) => eprintln!("No se pudo lanzar el subprograma: {}", e),
+    if let Err(e) = status {
+        eprintln!("No se pudo lanzar el subprograma: {}", e);
     }
 }
 
-fn main(){
+fn main() {
     let opciones = vec![
         "Monitoreo de procesos",
         "Simulador de Memoria Caché",
         "Estrés de Memoria y Salto a la Virtual",
         "Prioridad de Procesos",
-        "Salir"];
+        "Salir",
+    ];
 
     loop {
+        // Limpia la pantalla antes de mostrar el menú principal
+        clear();
+
         let seleccion = Select::new("Seleccione una opción:", opciones.clone()).prompt();
-    
+
         match seleccion {
             Ok("Monitoreo de procesos") => {
                 ejecutar("monitoreo");
@@ -49,14 +51,13 @@ fn main(){
                 println!("Saliendo...");
                 break;
             }
-            
+
             Err(_) => {
-                println!("Error, el preceso se a cancelado.");
+                println!("Error, el proceso se ha cancelado.");
                 break;
             }
 
-            Ok(_) => unreachable!()
-            
+            Ok(_) => unreachable!(),
         }
     }
 }
