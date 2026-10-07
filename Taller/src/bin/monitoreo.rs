@@ -61,6 +61,17 @@ fn main() {
             0.0
         };
 
+        // --- Datos de SWAP ---
+        let total_swap_gb = sys.total_swap() as f64 / 1024.0 / 1024.0 / 1024.0;
+        let used_swap_gb = sys.used_swap() as f64 / 1024.0 / 1024.0 / 1024.0;
+        let free_swap_gb = sys.free_swap() as f64 / 1024.0 / 1024.0 / 1024.0;
+
+        let porcentaje_swap = if total_swap_gb > 0.0 {
+            (used_swap_gb / total_swap_gb) * 100.0
+        } else {
+            0.0
+        };
+
         // --- Verificación y guardado de log (> 80%) ---
         if porcentaje_uso > 80.0 {
             registrar_alerta_ram(porcentaje_uso, used_gb, total_gb);
@@ -87,6 +98,10 @@ fn main() {
         println!(" Total:          {:.2} GB", total_gb);
         println!(" Usada:          {:.2} GB", used_gb);
         println!(" Libre:          {:.2} GB", free_gb);
+        println!("--------------------------------------------------");
+        println!(" SWAP Total:     {:.2} GB", total_swap_gb);
+        println!(" SWAP Usada:     {:.2} GB ({:.1}%)", used_swap_gb, porcentaje_swap);
+        println!(" SWAP Libre:     {:.2} GB", free_swap_gb);
         println!();
         println!("==================================================");
         println!("                       CPU                        ");
