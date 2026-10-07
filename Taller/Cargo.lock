@@ -345,6 +345,7 @@ name = "taller"
 version = "0.1.0"
 dependencies = [
  "inquire",
+ "libc",
  "sysinfo",
 ]
 

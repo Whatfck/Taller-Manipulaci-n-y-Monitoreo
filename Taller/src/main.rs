@@ -20,7 +20,7 @@ fn main() {
         "Monitoreo de procesos",
         "Simulador de Memoria Caché",
         "Estrés de Memoria y Salto a la Virtual",
-        "Prioridad de Procesos",
+        "Prioridad de Procesos (macOS)",
         "Salir",
     ];
 
@@ -43,7 +43,7 @@ fn main() {
                 ejecutar("estres");
             }
 
-            Ok("Prioridad de Procesos") => {
+            Ok("Prioridad de Procesos (macOS)") => {
                 ejecutar("prioridad");
             }
 
