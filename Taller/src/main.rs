@@ -1,11 +1,6 @@
 use std::process::Command;
 use inquire::{Select};
-use std::io::{self, Write};
-
-fn clear() {
-    print!("{esc}[2J{esc}[1;1H", esc = 27 as char);
-    let _ = io::stdout().flush();
-}
+pub use taller::clear;
 
 fn ejecutar(binario: &str) {
     clear();

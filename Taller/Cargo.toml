@@ -1,8 +1,9 @@
 [package]
-name = "Taller"
+name = "taller"
 version = "0.1.0"
 edition = "2024"
-default-run = "Taller"
+default-run = "taller"
 
 [dependencies]
 inquire = "0.7"
+sysinfo = "0.33"

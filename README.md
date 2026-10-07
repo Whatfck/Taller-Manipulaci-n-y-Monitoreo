@@ -1,4 +1,4 @@
-# Taller: Manipulación y Monitoreo de Recursos del SO desde el Código
+# taller: Manipulación y Monitoreo de Recursos del SO desde el Código
 
 ## *Instrucciones*
 ### **1. Vigilante de Recursos (Monitoreo de RAM y CPU)**
